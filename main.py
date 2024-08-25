@@ -7,7 +7,7 @@ import os
 import time
 from langchain_ollama import OllamaLLM
 
-cartella_api_key = "../../file/secrets.json"
+cartella_api_key = "secrets.json"
 #Classi per i vari modelli
 class Chatbot_rep():
     def __init__(self):
