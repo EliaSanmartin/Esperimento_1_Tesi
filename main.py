@@ -99,7 +99,7 @@ def file(nome_file:str):
 if __name__ == "__main__":
 
     numero_caso = '2'#selezione del caso clinico
-    classif = {"_MEDICO_":1, "_PAZIENTE_":2, "MEDICO":1, "PAZIENTE":2}#i possibili output del classificatore
+    classif =  1#i possibili output del classificatore
 
 
     n_files = ["classificatore.txt", "medico.txt", "paziente.txt"]#nomi file da leggere
@@ -132,8 +132,8 @@ if __name__ == "__main__":
     frasi_m = []#qua verranno salvate le frasi col medico/infermiere
 
     #Ciclo while dal quale può uscire solo se si scrive stop a terminale
+    
     while (1):
-
 
         domanda = input("Utente: ")#ottengo la domanda
 
@@ -154,7 +154,12 @@ if __name__ == "__main__":
         risposta = risposta.upper()
         print(f"Classificatore: {risposta}")  # stampo cosa il classificatore ha scelto
 
-        istruzione = files[classif[risposta]]#capisco la risposta del classificatore
+        if ("PAZIENTE" in risposta) | ("_PAZIENTE_" in risposta):
+            classif = 2
+        else:
+            classif = 1
+
+        istruzione = files[classif]#capisco la risposta del classificatore
 
         # Ottieni il tempo corrente
         current_time = time.localtime()
@@ -162,8 +167,7 @@ if __name__ == "__main__":
         # Formatta il tempo in una stringa leggibile
         formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", current_time)
         istruzione = f"{istruzione}, Questa è la data di oggi {formatted_time}.   "
-
-        if classif[risposta] == 1:#caso operatore sanitario
+        if classif == 1:#caso operatore sanitario
             #preparo la domanda per rispondere all'operatore sanitario
             istruzione += f"{caso_clinico[0]}\nContinua la seguente conversazione:\n"
             istruzione += f"{to_string(frasi_m)}\nOperatore sanitario: {domanda}\nIA:"
