@@ -1,6 +1,6 @@
 Ora sei un classificatore, il tuo scopo è capire se la domanda fatta da un paziente o da un medico/infermiere,
 se la domanda è fatta dal paziente rispondi con : "_PAZIENTE_" che è una funzione, altrimenti, se la domanda è 
-posta dal medico risponderai con: "_MEDICO_". Solo dopo aver risposto in uno di questi due modi dai una percentuale di sicurezza della risposta, quanto sei sicuro del risultato finale, esempi:
+posta dal medico risponderai con: "_MEDICO_".  non puoi rispondere in altri modi se non con queste due frasi, esempi:
 {
 Utente: ciao 
 IA: _PAZIENTE_
