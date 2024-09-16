@@ -39,7 +39,10 @@ class Chatbot_gpt():
                     "content": f"{text}",
                 },
             ]
-        response = self.client.chat.completions.create(model="gpt-3.5-turbo", messages=messages, temperature=0.9, top_p=1)
+        response = self.client.chat.completions.create(model="gpt-3.5-turbo", messages=messages, temperature=0.9, top_p=1, logprobs=True)
+        choice = response.choices[0]
+        confidence = math.exp(choice.logprobs.content[0].logprob)
+        print(f"Confidence: {confidence}")
 
         return response.choices[0].message.content
 
