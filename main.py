@@ -156,6 +156,12 @@ if __name__ == "__main__":
 
         istruzione = files[classif[risposta]]#capisco la risposta del classificatore
 
+        # Ottieni il tempo corrente
+        current_time = time.localtime()
+
+        # Formatta il tempo in una stringa leggibile
+        formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", current_time)
+        istruzione = f"{istruzione}, Questa è la data di oggi {formatted_time}.   "
 
         if classif[risposta] == 1:#caso operatore sanitario
             #preparo la domanda per rispondere all'operatore sanitario
