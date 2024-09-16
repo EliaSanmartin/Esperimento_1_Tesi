@@ -39,7 +39,7 @@ class Chatbot_gpt():
                     "content": f"{text}",
                 },
             ]
-        response = self.client.chat.completions.create(model="gpt-3.5-turbo-instruct", messages=messages, temperature=0.9, top_p=1)
+        response = self.client.chat.completions.create(model="gpt-3.5-turbo", messages=messages, temperature=0.9, top_p=1)
 
         return response.choices[0].message.content
 
@@ -125,7 +125,7 @@ if __name__ == "__main__":
 
 
 #---------SCELTA CLASSE---------------
-    ia = Chatbot_manuale()
+    ia = Chatbot_gpt()
 #-------------------------------------
     print("Sistema operativo")
     frasi_p = []#qua verranno salvate le frasi col paziente
