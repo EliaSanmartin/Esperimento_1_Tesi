@@ -5,6 +5,7 @@ import google.generativeai as genai
 #from transformers import pipeline
 import os
 import time
+import math
 from langchain_ollama import OllamaLLM
 
 cartella_api_key = "secrets.json"
